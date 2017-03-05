@@ -15,6 +15,8 @@ var fruit;                                                                      
 var mom;                                                                                                         //大鱼
 var mouseX;                                                                                                      //鼠标x坐标
 var mouseY;                                                                                                      //鼠标Y坐标
+var baby;
+
 
 document.body.onload = game;
 
@@ -48,22 +50,26 @@ function init() {
 
     mouseX = canvasWidth * 0.5;             //鼠标初始位置
     mouseY = canvasHeight * 0.5;
+
+    baby = new babyFishObj();               //小鱼
+    baby.init();                            //初始化小鱼
 }
 
 /*动画帧*/
 function gameLoop() {
-    requestAnimationFrame(gameLoop); //api,当前帧绘制完成后，根据机器性能决定间隔多久绘制下一帧
+    requestAnimationFrame(gameLoop);                                                                        //api,当前帧绘制完成后，根据机器性能决定间隔多久绘制下一帧
     var now = Date.now();
     deltaTime = now - lastTime;
     lastTime = now;
     if(deltaTime > 40) deltaTime = 40;
-    drawBackground();   //背景函数
-    ane.draw();         //绘制海葵
-    fruit.draw();       //绘制果实
-    fruitMonitor();     //监视屏幕中的果实数量，当小于15个时，重新生长
-    ctx1.clearRect(0,0,canvasWidth,canvasHeight);   //清空上一次绘制
-    mom.draw();         //绘制大鱼
-    momFruitCollision();
+    drawBackground();                                                                                       //背景函数
+    ane.draw();                                                                                             //绘制海葵
+    fruit.draw();                                                                                           //绘制果实
+    fruitMonitor();                                                                                         //监视屏幕中的果实数量，当小于15个时，重新生长
+    ctx1.clearRect(0,0,canvasWidth,canvasHeight);                                                           //清空上一次绘制
+    mom.draw();                                                                                             //绘制大鱼
+    momFruitCollision();                                                                                    //大鱼吃掉果实
+    baby.draw();                                                                                            //绘制小鱼
 }
 
 
