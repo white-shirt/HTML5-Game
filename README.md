@@ -27,39 +27,73 @@
     * 8.globalAlpha 透明值*/
     
 2.绘制果实
+
   drawImage（）；
-  var fruitObj = function () {
+
+  var fruitObj = function ()
+
+ {
+
       /*属性*/
+
   }
  
- fruitObj.prototype.init = function () {
+ fruitObj.prototype.init = function ()
+
+ {
+
     /*初始化果实的属性*/
+
  }
  
- fruitObj.prototype.draw = function () {
+ fruitObj.prototype.draw = function ()
+
+ {
+
     /*画出果实*/
+
  }
  
- fruitObj.prototype.born = function () {
+ fruitObj.prototype.born = function ()
+
+ {
+
     /*随机生成果实的出生点，及随机X,Y坐标*/
+
  }
  
-  fruitObj.prototype.dead = function () {
+  fruitObj.prototype.dead = function ()
+
+  {
+
     /*果实被吃点，即改变果实的alive【i】属性*/
+
   }
  
-  fruitObj.prototype.fruitMonitor = function () {
+  fruitObj.prototype.fruitMonitor = function ()
+
+  {
+
     /*监视画布中的果实数量*/
+
   }
   
-   fruitObj.prototype.sendFruit = function () {
+   fruitObj.prototype.sendFruit = function ()
+
+   {
+
     /*重新生长果实*/
+
    }
    
    3.绘制大鱼
+
       API
+
         translate();
+
         rotate();
+
         Math.atan2(y,x);
         
   
