@@ -16,7 +16,14 @@ var mom;                                                                        
 var mouseX;                                                                                                      //鼠标x坐标
 var mouseY;                                                                                                      //鼠标Y坐标
 var baby;
-
+var babyTail = [];
+var babyEye = [];
+var babyBody = [];
+var momTail = [];
+var momEye = [];
+var momBodyOra = [];
+var momBodyBlue = [];
+var data;
 
 document.body.onload = game;
 
@@ -35,6 +42,8 @@ function init() {
     can2 = document.getElementById('canvas2');                                                                  //background,fruits,ane
     ctx2 = can2.getContext('2d');
     bgPic.src = "./img/background.jpg";                                                                         //背景图片
+    ctx1.font = '30px Verdana';
+    ctx1.textAlign = 'center';
     canvasWidth = can1.width;
     canvasHeight = can1.height;
     can1.addEventListener('mousemove',onMouseMove,false);                                                       //给can1添加鼠标移动事件
@@ -53,6 +62,40 @@ function init() {
 
     baby = new babyFishObj();               //小鱼
     baby.init();                            //初始化小鱼
+
+    for (var i = 0 ; i < 8 ; i++) {
+        babyTail[i] = new Image();
+        babyTail[i].src = 'img/babyTail' + i + '.png';
+    }
+
+    for ( var i = 0 ; i < 2 ; i++){
+        babyEye[i] = new Image();
+        babyEye[i].src = 'img/babyEye' + i + '.png';
+    }
+
+    for ( var i = 0 ; i < 20 ; i++){
+        babyBody[i] = new Image();
+        babyBody[i].src = 'img/babyFade' + i + '.png';
+    }
+
+    for ( var i = 0 ; i < 8 ; i++){
+        momTail[i] = new Image();
+        momTail[i].src = 'img/bigTail' + i + '.png';
+    }
+
+    for (var i = 0 ; i < 2 ; i++) {
+        momEye[i] = new Image();
+        momEye[i].src = 'img/bigEye' + i + '.png';
+    }
+
+    for (var i = 0 ; i < 8 ; i++) {
+        momBodyOra[i] = new Image();
+        momBodyBlue[i] = new Image();
+        momBodyOra[i].src = 'img/bigSwim' + i + '.png';
+        momBodyBlue[i].src = 'img/bigSwimBlue' + i + '.png';
+    }
+
+    data = new dataObj();
 }
 
 /*动画帧*/
@@ -68,8 +111,10 @@ function gameLoop() {
     fruitMonitor();                                                                                         //监视屏幕中的果实数量，当小于15个时，重新生长
     ctx1.clearRect(0,0,canvasWidth,canvasHeight);                                                           //清空上一次绘制
     mom.draw();                                                                                             //绘制大鱼
-    momFruitCollision();                                                                                    //大鱼吃掉果实
     baby.draw();                                                                                            //绘制小鱼
+    momFruitCollision();                                                                                    //大鱼与果实碰撞
+    momBabyCollision();                                                                                     //大鱼与小鱼碰撞
+    data.draw();
 }
 
 
