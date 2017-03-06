@@ -28,73 +28,47 @@
     
 2.绘制果实
 
-  drawImage（）；
+    *  drawImage（）；
+    *  var fruitObj = function ()
+    * {
+    *      /* 属性 */
+    *  }
+    *
+    * fruitObj.prototype.init = function ()
+    * {
+    *    /*初始化果实的属性*/
+    * }
+    *
+    * fruitObj.prototype.draw = function ()
+    * {
+    *    /*画出果实*/
+    * }
+    *
+    * fruitObj.prototype.born = function ()
+    * {
+    *    /*随机生成果实的出生点，及随机X,Y坐标*/
+    * }
+    *
+    *  fruitObj.prototype.dead = function ()
+    *  {
+    *    /*果实被吃点，即改变果实的alive【i】属性*/
+    *  }
+    *
+    *  fruitObj.prototype.fruitMonitor = function ()
+    *  {
+    *    /*监视画布中的果实数量*/
+    *  }
+    *
+    *   fruitObj.prototype.sendFruit = function ()
+    *   {
+    *    /*重新生长果实*/
+    *   }
 
-  var fruitObj = function ()
-
- {
-
-      /*属性*/
-
-  }
- 
- fruitObj.prototype.init = function ()
-
- {
-
-    /*初始化果实的属性*/
-
- }
- 
- fruitObj.prototype.draw = function ()
-
- {
-
-    /*画出果实*/
-
- }
- 
- fruitObj.prototype.born = function ()
-
- {
-
-    /*随机生成果实的出生点，及随机X,Y坐标*/
-
- }
- 
-  fruitObj.prototype.dead = function ()
-
-  {
-
-    /*果实被吃点，即改变果实的alive【i】属性*/
-
-  }
- 
-  fruitObj.prototype.fruitMonitor = function ()
-
-  {
-
-    /*监视画布中的果实数量*/
-
-  }
-  
-   fruitObj.prototype.sendFruit = function ()
-
-   {
-
-    /*重新生长果实*/
-
-   }
-   
    3.绘制大鱼
-
-      API
-
-        translate();
-
-        rotate();
-
-        Math.atan2(y,x);
+    * API
+    *   translate();
+    *   rotate();
+    *   Math.atan2(y,x);
         
   
    
