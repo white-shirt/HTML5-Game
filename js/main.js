@@ -24,6 +24,8 @@ var momEye = [];
 var momBodyOra = [];
 var momBodyBlue = [];
 var data;
+var wave;
+var halo;
 
 document.body.onload = game;
 
@@ -62,6 +64,12 @@ function init() {
 
     baby = new babyFishObj();               //小鱼
     baby.init();                            //初始化小鱼
+
+    wave = new waveObj();
+    wave.init();
+
+    halo = new haloObj();
+    halo.init();
 
     for (var i = 0 ; i < 8 ; i++) {
         babyTail[i] = new Image();
@@ -115,6 +123,8 @@ function gameLoop() {
     momFruitCollision();                                                                                    //大鱼与果实碰撞
     momBabyCollision();                                                                                     //大鱼与小鱼碰撞
     data.draw();
+    wave.draw();
+    halo.draw();
 }
 
 
