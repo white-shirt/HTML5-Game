@@ -1,5 +1,5 @@
 # HTML5-Game
-
+![game pic](img/cover.png)
 1.绘制海葵
   绘制直线API
   
