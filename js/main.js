@@ -120,8 +120,10 @@ function gameLoop() {
 
 /*鼠标移动*/
 function onMouseMove(e) {
-    if(e.offsetX || e.layerX) {                                                                             //在画布中，获取X，Y坐标的兼容写法
-        mouseX = e.offsetX == undefined ? e.layerX : e.offsetX;
-        mouseY = e.offsetY == undefined ? e.layerY : e.offsetY;
+    if (!data.gameOver) {                                                                                   //判断游戏状态
+        if(e.offsetX || e.layerX) {                                                                         //在画布中，获取X，Y坐标的兼容写法
+            mouseX = e.offsetX == undefined ? e.layerX : e.offsetX;
+            mouseY = e.offsetY == undefined ? e.layerY : e.offsetY;
+        }
     }
 }

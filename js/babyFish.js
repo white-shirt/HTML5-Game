@@ -60,6 +60,7 @@ babyFishObj.prototype.draw = function () {
         if(this.babyBodyCount > 19){
             this.babyBodyCount = 19;
             //game over
+            data.gameOver = true;    //当gameOver为true时游戏停止
         }
     }
 
