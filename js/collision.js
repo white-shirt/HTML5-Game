@@ -5,11 +5,11 @@
 
 function momFruitCollision() {
     if (!data.gameOver) {
-        for (var i = 0 ; i < fruit.num ; i++) {
+        for (var i = 0; i < fruit.num; i++) {
             if (fruit.alive[i]) {
                 //大鱼与果实距离的平方
-                var len = calLength2(fruit.x[i],fruit.y[i],mom.x,mom.y);
-                if ( len < 900){
+                var len = calLength2(fruit.x[i], fruit.y[i], mom.x, mom.y);
+                if (len < 900) {
                     //果实被吃掉
                     fruit.dead(i);
                     //吃掉果实数量加1
@@ -23,7 +23,7 @@ function momFruitCollision() {
                     if (fruit.fruitType[i] == 'blue') {
                         data.double = 2;
                     }
-                    wave.born(fruit.x[i],fruit.y[i]);
+                    wave.born(fruit.x[i], fruit.y[i]);
                 }
             }
         }
@@ -34,16 +34,16 @@ function momFruitCollision() {
 
 function momBabyCollision() {
     //游戏状态为false且fruitNum大于0时大鱼和小鱼碰撞才有效
-    if(data.fruitNum > 0 && !data.gameOver){
-        var l = calLength2(mom.x,mom.y,baby.x,baby.y);
-        if( l < 900) {
+    if (data.fruitNum > 0 && !data.gameOver) {
+        var l = calLength2(mom.x, mom.y, baby.x, baby.y);
+        if (l < 900) {
             //baby recover
             baby.babyBodyCount = 0;
             mom.momBodyCount = 0;
             //score update
             data.addScore();
             //draw halo
-            halo.born(baby.x,baby.y);
+            halo.born(baby.x, baby.y);
         }
     }
 

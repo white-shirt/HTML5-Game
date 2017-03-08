@@ -1,6 +1,8 @@
 /**
  * Created by Administrator on 2017/3/5.
  */
+
+//主函数，实例化类，初始化，帧循环
 var can1;
 var can2;
 var ctx1;
@@ -50,7 +52,7 @@ function init() {
     ctx1.textAlign = 'center';
     canvasWidth = can1.width;
     canvasHeight = can1.height;
-    can1.addEventListener('mousemove',onMouseMove,false);                                                       //给can1添加鼠标移动事件
+    can1.addEventListener('mousemove', onMouseMove, false);                                                     //给can1添加鼠标移动事件
 
     ane = new aneObj();                     //海葵
     ane.init();                             //初始化海葵
@@ -67,53 +69,53 @@ function init() {
     baby = new babyFishObj();               //小鱼
     baby.init();                            //初始化小鱼
 
-    wave = new waveObj();
-    wave.init();
+    wave = new waveObj();                   //实例化大鱼吃果实波浪
+    wave.init();                            //初始化波浪状态
 
-    halo = new haloObj();
-    halo.init();
+    halo = new haloObj();                   //实例化大鱼喂小鱼波浪
+    halo.init();                            //初始化
 
-    for (var i = 0 ; i < 7 ; i++) {
+    for (var i = 0; i < 7; i++) {
         dustPic[i] = new Image();
         dustPic[i].src = 'img/dust' + i + '.png';
     }
 
-    dust = new dustObj();
-    dust.init();
+    dust = new dustObj();                   //实例化海藻类
+    dust.init();                            //初始化
 
-    for (var i = 0 ; i < 8 ; i++) {
+    for (var i = 0; i < 8; i++) {
         babyTail[i] = new Image();
         babyTail[i].src = 'img/babyTail' + i + '.png';
     }
 
-    for ( var i = 0 ; i < 2 ; i++){
+    for (var i = 0; i < 2; i++) {
         babyEye[i] = new Image();
         babyEye[i].src = 'img/babyEye' + i + '.png';
     }
 
-    for ( var i = 0 ; i < 20 ; i++){
+    for (var i = 0; i < 20; i++) {
         babyBody[i] = new Image();
         babyBody[i].src = 'img/babyFade' + i + '.png';
     }
 
-    for ( var i = 0 ; i < 8 ; i++){
+    for (var i = 0; i < 8; i++) {
         momTail[i] = new Image();
         momTail[i].src = 'img/bigTail' + i + '.png';
     }
 
-    for (var i = 0 ; i < 2 ; i++) {
+    for (var i = 0; i < 2; i++) {
         momEye[i] = new Image();
         momEye[i].src = 'img/bigEye' + i + '.png';
     }
 
-    for (var i = 0 ; i < 8 ; i++) {
+    for (var i = 0; i < 8; i++) {
         momBodyOra[i] = new Image();
         momBodyBlue[i] = new Image();
         momBodyOra[i].src = 'img/bigSwim' + i + '.png';
         momBodyBlue[i].src = 'img/bigSwimBlue' + i + '.png';
     }
 
-    data = new dataObj();
+    data = new dataObj();                       //实例化分数类
 }
 
 /*动画帧*/
@@ -122,27 +124,27 @@ function gameLoop() {
     var now = Date.now();
     deltaTime = now - lastTime;
     lastTime = now;
-    if(deltaTime > 40) deltaTime = 40;
+    if (deltaTime > 40) deltaTime = 40;
     drawBackground();                                                                                       //背景函数
     ane.draw();                                                                                             //绘制海葵
     fruit.draw();                                                                                           //绘制果实
     fruitMonitor();                                                                                         //监视屏幕中的果实数量，当小于15个时，重新生长
-    ctx1.clearRect(0,0,canvasWidth,canvasHeight);                                                           //清空上一次绘制
+    ctx1.clearRect(0, 0, canvasWidth, canvasHeight);                                                        //清空上一次绘制
     mom.draw();                                                                                             //绘制大鱼
     baby.draw();                                                                                            //绘制小鱼
     momFruitCollision();                                                                                    //大鱼与果实碰撞
     momBabyCollision();                                                                                     //大鱼与小鱼碰撞
-    data.draw();
-    wave.draw();
-    halo.draw();
-    dust.draw();
+    data.draw();                                                                                            //分数
+    wave.draw();                                                                                            //大鱼波浪
+    halo.draw();                                                                                            //小鱼波浪
+    dust.draw();                                                                                            //海藻
 }
 
 
 /*鼠标移动*/
 function onMouseMove(e) {
     if (!data.gameOver) {                                                                                   //判断游戏状态
-        if(e.offsetX || e.layerX) {                                                                         //在画布中，获取X，Y坐标的兼容写法
+        if (e.offsetX || e.layerX) {                                                                        //在画布中，获取X，Y坐标的兼容写法
             mouseX = e.offsetX == undefined ? e.layerX : e.offsetX;
             mouseY = e.offsetY == undefined ? e.layerY : e.offsetY;
         }

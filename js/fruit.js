@@ -20,7 +20,7 @@ fruitObj.prototype.num = 30;                                                    
 
 /*初始化*/
 fruitObj.prototype.init = function () {
-    for (var i = 0 ; i < this.num ; i++) {
+    for (var i = 0; i < this.num; i++) {
         this.alive[i] = false;
         this.x[i] = 0;
         this.y[i] = 0;
@@ -34,11 +34,11 @@ fruitObj.prototype.init = function () {
 
 /*绘制果实*/
 fruitObj.prototype.draw = function () {
-    for (var i = 0 ; i < this.num ; i++){
+    for (var i = 0; i < this.num; i++) {
         if (this.alive[i]) {
-            if (this.fruitType[i] == 'blue'){
+            if (this.fruitType[i] == 'blue') {
                 var pic = this.blue;
-            }else{
+            } else {
                 var pic = this.orange;
             }
             if (this.scale[i] <= 14) {
@@ -46,11 +46,11 @@ fruitObj.prototype.draw = function () {
                 this.x[i] = ane.headx[NO];
                 this.y[i] = ane.heady[NO];
                 this.scale[i] += this.speed[i] * deltaTime;                                                                             //果实的大小慢慢变大
-           }else {
+            } else {
                 this.y[i] -= this.speed[i] * 7 * deltaTime;
                 //ctx2.drawImage(pic,this.x[i] - this.scale[i] * 0.5,this.y[i] - this.scale[i] * 0.5,this.scale[i],this.scale[i]); 
             }
-            ctx2.drawImage(pic,this.x[i] - this.scale[i] * 0.5,this.y[i] - this.scale[i] * 0.5,this.scale[i],this.scale[i]); 
+            ctx2.drawImage(pic, this.x[i] - this.scale[i] * 0.5, this.y[i] - this.scale[i] * 0.5, this.scale[i], this.scale[i]);
             /*当果实的Y坐标小于10
              * 把果实的状态变为false
              * 同理当果实的状态 this.alive = true 时
@@ -69,14 +69,14 @@ fruitObj.prototype.born = function (i) {                                        
         var NO = this.aneNO[i];
         this.x[i] = ane.headx[NO];
         this.y[i] = ane.heady[NO];
-        this.scale[i] += this.speed[i] * deltaTime;                                                                             //果实的大小慢慢变大
-   }
+        this.scale[i] += this.speed[i] * deltaTime;                                                                                     //果实的大小慢慢变大
+    }
     this.scale[i] = 0;                                                                                                                  //果实出生时大小为o
     this.alive[i] = true;                                                                                                               //把出生的果实状态设置为true
     var ran = Math.random();                                                                                                            //生成一个随机数，如果随机数小于0.2则fruitType为blue
     if (ran < 0.2) {
         this.fruitType[i] = 'blue';
-    }else {
+    } else {
         this.fruitType[i] = 'orange';
     }
 };
@@ -89,7 +89,7 @@ fruitObj.prototype.dead = function (i) {
 /*监视屏幕中果实数量*/
 function fruitMonitor() {
     var num = 0;
-    for (var i = 0 ; i < fruit.num ; i++) {                                                                                             //统计画布中fruit.alive = true 的果实数量
+    for (var i = 0; i < fruit.num; i++) {                                                                                               //统计画布中fruit.alive = true 的果实数量
         if (fruit.alive[i]) num++;
     }
     if (num < 15) {                                                                                                                     //果实数量小于15个
@@ -100,7 +100,7 @@ function fruitMonitor() {
 
 /*重新生长果实*/
 function sendFruit() {
-    for (var i = 0 ; i < fruit.num ; i++) {
+    for (var i = 0; i < fruit.num; i++) {
         if (!fruit.alive[i]) {
             fruit.born(i);                                                                                                              //调用fruit类的born方法
             return;
