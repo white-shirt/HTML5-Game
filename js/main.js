@@ -26,6 +26,8 @@ var momBodyBlue = [];
 var data;
 var wave;
 var halo;
+var dust;
+var dustPic = [];
 
 document.body.onload = game;
 
@@ -70,6 +72,14 @@ function init() {
 
     halo = new haloObj();
     halo.init();
+
+    for (var i = 0 ; i < 7 ; i++) {
+        dustPic[i] = new Image();
+        dustPic[i].src = 'img/dust' + i + '.png';
+    }
+
+    dust = new dustObj();
+    dust.init();
 
     for (var i = 0 ; i < 8 ; i++) {
         babyTail[i] = new Image();
@@ -125,6 +135,7 @@ function gameLoop() {
     data.draw();
     wave.draw();
     halo.draw();
+    dust.draw();
 }
 
 
