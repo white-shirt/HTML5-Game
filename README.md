@@ -64,7 +64,7 @@
     *    /*重新生长果实*/
     *   }
 
-2.绘制大鱼
+3.绘制大鱼
 
     *   API
     *   translate();
@@ -103,17 +103,17 @@
 
     *    wave.born(fruit.x[i], fruit.y[i]);
 
-5.  绘制小鱼
+5.绘制小鱼
 
     *
 
-6.  大鱼与小鱼碰撞
+6.大鱼与小鱼碰撞
 
     *
 
-7.  海葵摆动
+7.海葵摆动
 
-    *   quadraticCurveTo(cpx,cpy,x,y);     //二次贝塞尔曲线
+    *   quadraticCurveTo(cpx,cpy,x,y);//二次贝塞尔曲线
 
     *   cpx:控制点X坐标
 
